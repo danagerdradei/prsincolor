@@ -1,0 +1,9 @@
+[build]
+  # Comando para construir tu proyecto
+  command = "npm install --legacy-peer-deps && npm run build"
+  # Directorio donde se coloca el contenido que será desplegado
+  publish = "dist"
+
+# Configuración para diferentes contextos como producción, deploy previews, etc.
+[context.production.environment]
+  NODE_VERSION = "18.20.4" # O cualquier versión de Node que estés utilizando
