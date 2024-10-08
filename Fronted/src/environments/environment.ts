@@ -8,5 +8,5 @@ export const environment = {
     status:"api/V1/Status",
     user:"api/V1/User",
   },
-  baseFrontUrl:'https://prsincolores.netlify.app'
+  baseFrontUrl:'/'
 };
