@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "preinstall": "npm install --force"  // Se fuerza la instalación ignorando conflictos
+    "preinstall": "npm install --force"
   },
   "dependencies": {
     "@angular/animations": "~14.2.12",
@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~14.2.12",
     "@angular/platform-browser-dynamic": "~14.2.12",
     "@angular/router": "~14.2.12",
-    "angularx-social-login": "^4.1.0",  // Este paquete sigue siendo un problema por su incompatibilidad
+    "angularx-social-login": "^4.1.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.8"
