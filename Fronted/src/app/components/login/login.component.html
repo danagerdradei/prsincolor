@@ -1,0 +1,50 @@
+  <div class="container-login">
+    <!-- Texto superior -->
+    <div class="header-login text-center">
+        <p class="header-text">El <strong>Puerto Rico</strong> que amamos, está en construcción</p>
+    </div>
+
+    <!-- Logo principal -->
+    <div class="logo-container text-center">
+        <h1 class="login-title">PUERTO RICO</h1>
+        <h2 class="login-subtitle">SIN COLORES</h2>
+    </div>
+
+    <!-- Línea de construcción -->
+    <div class="construction-line text-center">
+        <p>PUERTORRIQUEÑISTAS • AMAMOS A PUERTO RICO • PUERTORRIQUEÑISTAS • AMAMOS A PUERTO RICO</p>
+    </div>
+
+    <!-- Formulario de login -->
+    <div class="login-form text-center">
+        <p>Inicia sesión para continuar:</p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <div *ngIf="this.loginType === 2">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input type="email" formControlName="email" class="form-control mb-3" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Ingresa tu correo electrónico" />
+                </div>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">El email</div>
+                </div>
+            </div>
+
+            <!-- Nuevo botón de Google -->
+            <div id="googleSignInButton"></div>
+
+            <button *ngIf="this.loginType === 2" [disabled]="loading" class="btn btn-primary btn-block rounded-pill">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Iniciar sesión
+            </button>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0 text-center rounded-pill">{{error}}</div>
+        </form>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="socials-login text-center">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</div>
