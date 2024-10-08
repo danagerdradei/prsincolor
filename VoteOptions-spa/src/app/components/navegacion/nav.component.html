@@ -1,0 +1,14 @@
+<!-- Barra superior fija -->
+<header class="navbar navbar-light bg-light shadow-sm fixed-top">
+  <div class="container d-flex justify-content-between align-items-center">
+      <span class="navbar-brand mb-0 h1">PRsinColores</span>
+      <div class="d-flex align-items-center">
+          <span class="me-3">{{electionInfo?.totalVotes || '0' }} Votos recolectados</span>
+          <span class="dot bg-success me-3"></span>
+          <button class="btn btn-outline-dark" (click)="logOut()">Logout</button>
+      </div>
+  </div>
+  
+</header>
+
+
