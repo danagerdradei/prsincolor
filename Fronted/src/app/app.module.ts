@@ -61,7 +61,7 @@ import { VoteWinnerResultsComponent } from './components/Project/vote-winner-res
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '347153660190-rj85sjim398b3uo6rgachl1637bl659a.apps.googleusercontent.com'
+              '532980490624-4u9fnec74f0n8ra78pae9ljefrv110k2.apps.googleusercontent.com'
             ),
           }
         ],
