@@ -26,8 +26,10 @@ COPY --from=build /app/dist/cliente/ /usr/share/nginx/html
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
+ENV PORT=8000
+
 # Expose port 80
-EXPOSE 80
+EXPOSE 8000
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
