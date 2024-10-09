@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       // Asignar el Client ID de Google desde el archivo de environment
       this.clientId = environment.clientId;
       
-      // Asignar la URL base (http://localhost:4200 o el dominio correspondiente)
+      // Asignar la URL base (http://localhost:4200 o dominio personalizado)
       this.localUri = `${window.location.protocol}//${window.location.host}`;
       
       // Si el usuario ya está logueado, redirigir a la página principal
@@ -49,27 +49,35 @@ export class LoginComponent implements OnInit, OnDestroy {
       // Obtener la URL de retorno, por defecto '/LandingPage'
       this.returnUrl = '/LandingPage';
 
-      window['handleCredentialResponse'] = (response: any) => {
-        this.handleCredentialResponse(response);
-      };
-  
-      // Inicializar Google Sign-In con el client_id y el callback
-      google.accounts.id.initialize({
-        client_id: this.clientId,
-        callback: window['handleCredentialResponse']
-      });
-
-      // Detectar si es un dispositivo iOS (Safari) para manejar de manera diferente si es necesario
-      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-      if (isSafari) {
-        console.log('Navegador Safari detectado en iOS');
+      // Cargar el script de Google manualmente si no está disponible
+      if (!window['google'] || !google.accounts) {
+        const script = document.createElement('script');
+        script.src = 'https://accounts.google.com/gsi/client';
+        script.async = true;
+        script.defer = true;
+        script.onload = () => this.renderGoogleButton(); // Renderizar botón después de cargar
+        document.head.appendChild(script);
+      } else {
+        this.renderGoogleButton();
       }
+  }
 
-      // Renderizar el botón de Google Sign-In
-      google.accounts.id.renderButton(
-        document.getElementById('googleSignInButton'), // Coloca el ID del botón en el HTML
-        { theme: 'outline', size: 'large' } // Personalización del botón
-      );
+  // Función para renderizar el botón de Google después de asegurarse de que el script está cargado
+  renderGoogleButton() {
+    window['handleCredentialResponse'] = (response: any) => {
+      this.handleCredentialResponse(response);
+    };
+
+    // Inicializar Google Sign-In con el client_id y el callback
+    google.accounts.id.initialize({
+      client_id: this.clientId,
+      callback: window['handleCredentialResponse']
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById('googleSignInButton'), // Coloca el ID del botón en el HTML
+      { theme: 'outline', size: 'large' } // Personalización del botón
+    );
   }
 
   // Callback para manejar la respuesta del token JWT de Google

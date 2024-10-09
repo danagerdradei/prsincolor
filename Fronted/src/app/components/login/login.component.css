@@ -1,3 +1,4 @@
+/* Contenedor principal de login */
 .container-login {
     position: absolute;
     top: 50%;
@@ -11,6 +12,22 @@
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
+
+/* Botón de Google */
+#googleSignInButton {
+    display: flex;
+    justify-content: center;  /* Centrar horizontalmente el botón */
+    align-items: center;      /* Centrar verticalmente el botón */
+    margin: 20px 0;           /* Espacio alrededor del botón */
+    width: 100%;              /* Ajustar al 100% del ancho disponible */
+}
+
+/* Contenedor del iframe de Google */
+#googleSignInButton iframe {
+    display: block;
+    margin: 0 auto;           /* Centrar el iframe horizontalmente */
+}
+
 .header-login {
     margin-bottom: 20px;
 }
@@ -60,20 +77,6 @@
     border: 1px solid #ddd;
 }
 
-/* Estilos para el contenedor del botón de Google */
-.btn-google-container {
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.btn-google-container > div {
-    display: inline-block !important;
-    width: 100% !important;
-}
-
-/* Estilos personalizados para el botón de Google */
 .login-form .btn-google {
     width: 100%;
     padding: 10px;
@@ -81,15 +84,12 @@
     color: white;
     border: none;
     border-radius: 5px;
-    display: inline-block !important;
-    margin: 0 auto !important;
 }
 
 .login-form .btn-google:hover {
     background-color: #c23321;
 }
 
-/* Estilos para el botón primario de login (por correo) */
 .login-form .btn-primary {
     width: 100%;
     padding: 10px;
@@ -112,12 +112,4 @@
 
 .socials-login a:hover {
     color: #333;
-}
-
-/* Estilos adicionales para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .container-login {
-        width: 90%;
-        padding: 15px;
-    }
 }
