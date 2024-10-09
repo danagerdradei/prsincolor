@@ -60,6 +60,20 @@
     border: 1px solid #ddd;
 }
 
+/* Estilos para el contenedor del botón de Google */
+.btn-google-container {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.btn-google-container > div {
+    display: inline-block !important;
+    width: 100% !important;
+}
+
+/* Estilos personalizados para el botón de Google */
 .login-form .btn-google {
     width: 100%;
     padding: 10px;
@@ -67,12 +81,15 @@
     color: white;
     border: none;
     border-radius: 5px;
+    display: inline-block !important;
+    margin: 0 auto !important;
 }
 
 .login-form .btn-google:hover {
     background-color: #c23321;
 }
 
+/* Estilos para el botón primario de login (por correo) */
 .login-form .btn-primary {
     width: 100%;
     padding: 10px;
@@ -97,3 +114,10 @@
     color: #333;
 }
 
+/* Estilos adicionales para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container-login {
+        width: 90%;
+        padding: 15px;
+    }
+}
