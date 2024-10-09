@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  baseUrl: 'http://www.prsincolores.somee.com/',
+  baseUrl: 'https://www.prsincolores.somee.com/',
   methods: {
     authentication:"Authorization",
     report:"api/V1/Report",
