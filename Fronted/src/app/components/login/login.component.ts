@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       // Asignar el Client ID de Google desde el archivo de environment
       this.clientId = environment.clientId;
       
-      // Asignar la URL base (http://localhost:4200)
+      // Asignar la URL base (http://localhost:4200 o el dominio correspondiente)
       this.localUri = `${window.location.protocol}//${window.location.host}`;
       
       // Si el usuario ya está logueado, redirigir a la página principal
@@ -59,6 +59,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         callback: window['handleCredentialResponse']
       });
 
+      // Detectar si es un dispositivo iOS (Safari) para manejar de manera diferente si es necesario
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari) {
+        console.log('Navegador Safari detectado en iOS');
+      }
+
+      // Renderizar el botón de Google Sign-In
       google.accounts.id.renderButton(
         document.getElementById('googleSignInButton'), // Coloca el ID del botón en el HTML
         { theme: 'outline', size: 'large' } // Personalización del botón
