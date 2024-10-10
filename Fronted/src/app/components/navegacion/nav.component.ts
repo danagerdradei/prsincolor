@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
     this.currentUser =  this.authenticationService.getCurentUser();
     //console.log(this.currentUser);
     if(this.currentUser)
-      this.redirect = "/projects";
+      this.redirect = "/LandingPage";
     else
       this.redirect = "/";
     //console.log(this.redirect);
@@ -31,7 +31,7 @@ export class NavComponent implements OnInit {
   logOut(){
     this.isDropdownOpen = false;
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 navOnclick(){
   this.isDropdownOpen = !this.isDropdownOpen

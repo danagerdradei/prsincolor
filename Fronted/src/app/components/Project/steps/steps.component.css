@@ -1,0 +1,65 @@
+/* Estilos para la sección del simulacro */
+.simulacro-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+}
+
+.simulacro-intro {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.steps {
+    margin-top: 20px;
+}
+
+.step-box {
+    padding: 20px;
+    border: 2px solid #333; /* Añade un borde oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: transparent; /* Fondo transparente */
+    transition: background-color 0.3s ease;
+}
+
+.step-box:hover {
+    background-color: #f1f1f1; /* Fondo gris claro al pasar el ratón */
+}
+
+.step-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 5px 15px; /* Espaciado del número */
+    border-radius: 50px; /* Redondeado estilo botón */
+    display: inline-block; /* Para que se vea como botón */
+}
+
+.step-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.step-box h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.step-box p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .step-box {
+        margin-bottom: 20px;
+    }
+}

@@ -14,41 +14,13 @@ import { VoteService } from 'src/app/service/vote.service';
 })
 export class ResultByUserPageComponent implements OnInit {
   code: string = '';
-  actualUserVote: UserVote = null;
-  currentUser: User = null;
-  showResult: boolean = false;
-  showVote: boolean = false;
-  electionInfo: any = null;
-  results: any = null;
-  principalCandidate: any = null;
 
   constructor(
-    private route: ActivatedRoute,
-    private electionService: ElectionService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-
-    this.code = this.route.snapshot.params['code'];
-    this.getElectionIfo();
-    
+    this.code = this.route.snapshot.params['code']; 
   }
-
-  getElectionIfo() {
-    this.electionService.getElectionInfo().subscribe({
-      next: (result) => { 
-        //console.log("election",result);
-        if (result) {
-          this.electionInfo =  result;
-        }
-        else{
-          this.actualUserVote =   null;
-        }
-      }
-    });
-  }
-
- 
-
 
 }

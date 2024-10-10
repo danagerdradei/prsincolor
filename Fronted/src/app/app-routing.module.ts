@@ -11,6 +11,7 @@ import { VoteResultsComponent } from './components/Project/vote-results/vote-res
 import { ProjectSuggestionsResultComponent } from './components/Project/project-suggestions-result/project-suggestions-result.component';
 import { LandingPageComponent } from './components/Project/landing-page/landig-page.component';
 import { ResultByUserPageComponent } from './components/Project/result-by-user-page/result-by-user-page.component';
+import { StartPageComponent } from './components/Project/start-page/start-page.component';
 
 const routes: Routes = [
   {
@@ -20,9 +21,10 @@ const routes: Routes = [
 
   },
   { path: 'login', component: LoginComponent },
+  { path: 'start', component: StartPageComponent },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/start',
     pathMatch: 'full'
   },
   { path: 'user-result/:code', component: ResultByUserPageComponent }

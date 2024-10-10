@@ -32,3 +32,4 @@ EXPOSE 8000
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+

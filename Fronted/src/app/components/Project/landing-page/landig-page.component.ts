@@ -29,16 +29,20 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     //console.log("Inicio landing");
-    this.getElectionIfo();
-    this.createUserVote();
+    this.optionButtomText = "VOTAR AHORA";
+    this.getElectionIfo(true);
+    this.scrollToSection();
+    
   }
 
-  getElectionIfo() {
+  getElectionIfo(crateVote:boolean = false) {
     this.electionService.getElectionInfo().subscribe({
       next: (result) => { 
         //console.log("election",result);
         if (result) {
           this.electionInfo =  result;
+          if(crateVote)
+            this.createUserVote();
         }
         else{
           this.actualUserVote =   null;
@@ -47,20 +51,18 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
-click(opcion: string) {
-    this.showRegions(opcion);
-    if(opcion === "OCULTAR")
-      this.changeOptionButtonIfo();
-    else
-      this.optionButtomText =  "OCULTAR";
+  scrollToSection(): void {
+    const sectionId = 'footer-section';
+    setTimeout(() => {
+      const sectionToScroll = document.getElementById(sectionId);
+      if (sectionToScroll) {
+        sectionToScroll.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);  // Pequeño retraso para asegurarse que el DOM está listo
   }
   
-showRegions(opcion: string){
-  this.showVote = opcion === "VOTAR AHORA";
-  this.showResult = opcion === "VER RESULTADOS";
   
-}
-
+  
   createUserVote() {
     //console.log("entro a createUserVote");
     this.currentUser = this.authenticationService.getCurentUser();
@@ -83,11 +85,14 @@ changeOptionButtonIfo(){
   //console.log("changeOptionButtonIfo",this.actualUserVote);
   if(this.actualUserVote.winnerCandidateId !== null || this.actualUserVote.draw )
   {
-   
-    this.optionButtomText =  "VER RESULTADOS";
+    this.showVote = false;
+    this.showResult = true;
   }
   else
-   this.optionButtomText = "VOTAR AHORA";
+  {
+    this.showVote = true;
+    this.showResult = false;
+  }
 
    //console.log("boton",this.optionButtomText)
 }
@@ -95,8 +100,8 @@ changeOptionButtonIfo(){
 handleResult(result: any) { 
   //console.log("handled",result)
   this.results = result;
-  this.optionButtomText =  "VER RESULTADOS";
-  this.click(this.optionButtomText);
+  this.showVote = false;
+  this.showResult = true;
   this.getElectionIfo();
 }
 
@@ -104,9 +109,6 @@ handledRepeat(result: any) {
   //console.log("handled repeat",result)
   if(result.isDelete)
   {
-    this.optionButtomText =  "VOTAR AHORA";
-    this.showVote = false;
-    this.showResult = false;
     this.createUserVote();
   }
 }

@@ -20,6 +20,9 @@ import { VoteResultsComponent } from './components/Project/vote-results/vote-res
 import { ProjectSuggestionsResultComponent } from './components/Project/project-suggestions-result/project-suggestions-result.component';
 import { ResultByUserPageComponent } from './components/Project/result-by-user-page/result-by-user-page.component';
 import { VoteWinnerResultsComponent } from './components/Project/vote-winner-result/vote-winner-result.component';
+import { CandidateResultComponent } from './components/Project/candidate-result/candidate-result.component';
+import { StepsComponent } from './components/Project/steps/steps.component';
+import { StartPageComponent } from './components/Project/start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { VoteWinnerResultsComponent } from './components/Project/vote-winner-res
     VoteResultsComponent,
     ProjectSuggestionsResultComponent,
     ResultByUserPageComponent,
-    VoteWinnerResultsComponent ],
+    VoteWinnerResultsComponent,
+    CandidateResultComponent,
+    StepsComponent,
+    StartPageComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

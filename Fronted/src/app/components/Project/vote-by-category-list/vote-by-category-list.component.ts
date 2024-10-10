@@ -84,7 +84,7 @@ export class VoteByCategoryListComponent implements OnInit {
   }
 
   printProposals(index: number) {
-    //console.log(index);
+    console.log(index);
     this.item = index + 1;
     //console.log(this.currentElection);
     this.currentCantegory = this.currentElection.categories[index];
@@ -126,7 +126,7 @@ export class VoteByCategoryListComponent implements OnInit {
     //console.log('Elemento con id="proposal-1" no encontrado');
   }
     this.selectedProposal = proposal;
-    //console.log('Propuesta seleccionada:', this.selectedProposal);
+    console.log('Propuesta seleccionada:', this.selectedProposal);
   }
 
   fillVoteInfo(): VoteInfo {

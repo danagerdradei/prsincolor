@@ -1,0 +1,127 @@
+
+
+/* Estilos para la sección de presentación */
+.presentation {
+    background-color: #f9f9f9; /* Color de fondo claro */
+    padding: 60px 0; /* Espaciado superior e inferior */
+}
+
+.november-title {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.title-main {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text-paragraph {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.container {
+    max-width: 800px; /* Limita el ancho para que el texto no sea muy extenso */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+@media (max-width: 768px) {
+    .title-main {
+        font-size: 2.5rem; /* Ajusta el tamaño en pantallas más pequeñas */
+    }
+    .november-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Estilos para la sección de candidatos */
+.candidates-section {
+    background-color: #f9f9f9; /* Fondo claro */
+    padding: 40px 0; /* Espaciado superior e inferior */
+}
+
+.candidate-img {
+    border-radius: 10px; /* Bordes redondeados de las imágenes */
+    transition: filter 0.3s ease; /* Transición al pasar el mouse */
+    filter: grayscale(100%); /* Inicialmente en escala de grises */
+}
+
+.candidate-img:hover {
+    filter: grayscale(0%); /* Se quita el filtro al pasar el mouse */
+}
+
+.candidate-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 10px;
+}
+
+.votes {
+    font-size: 1rem;
+    color: #666;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+
+/* Ajustes adicionales */
+.row {
+    align-items: flex-start; /* Alineamos todos los candidatos al inicio */
+}
+
+@media (max-width: 768px) {
+    /* Ajustamos el efecto en pantallas pequeñas */
+    .candidate {
+        transform: none; /* No aplicamos la cascada en pantallas pequeñas */
+    }
+    .candidate-name {
+        font-size: 1rem;
+    }
+    .votes {
+        font-size: 0.9rem;
+    }
+    .candidate-img {
+        border-radius: 8px; /* Ajustamos los bordes en pantallas pequeñas */
+    }
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap; /* Evita que el texto haga salto de línea */
+    overflow: hidden; /* Oculta el contenido que está fuera del contenedor */
+    box-sizing: border-box;
+    animation: marquee 15s linear infinite; /* Animación */
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%); /* Comienza fuera del contenedor */
+    }
+    100% {
+      transform: translateX(-100%); /* Termina fuera del otro lado del contenedor */
+    }
+  }
+  

@@ -30,7 +30,7 @@ shareUrl: string;
 
   ngOnInit(): void {
     this.shareUrl = `${environment.baseFrontUrl}#/user-result/${this.actualUserVote.id}`;
-    //console.log(this.shareUrl);
+    console.log(this.shareUrl);
     this.getResults();
     this.updateSocialLinks();
   }
@@ -56,7 +56,7 @@ getResults() {
 
 setResultsInfo()
 {
-  //console.log("setResultsInfo",this.results);
+  console.log("setResultsInfo",this.results);
   if (this.results.candidates && this.results.candidates.length > 1) {
     this.principalCandidate = this.results.candidates[0];
     this.otherCandidates = this.results.candidates.slice(1); // Extrae desde el índice 1 en adelante
@@ -74,7 +74,7 @@ setResultsInfo()
 onClick() {
   this.voteService.deleteUserVote({ userVoteId: this.actualUserVote.id}).subscribe({
     next: (result) => { 
-      //console.log("onClick delete userVote",result);
+      console.log("onClick delete userVote",result);
       if (result) {
         this.repeatEvent.emit(result);
       }  

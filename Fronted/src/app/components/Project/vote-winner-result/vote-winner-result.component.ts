@@ -64,7 +64,7 @@ getResults() {
 
   doTest()
   {
-    this.router.navigate(['']);
+    this.router.navigate(['/LandingPage']);
   }
 
 }

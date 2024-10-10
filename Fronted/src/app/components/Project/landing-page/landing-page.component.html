@@ -1,149 +1,38 @@
+    <app-nav [electionInfo]="electionInfo"></app-nav>
 
-        <app-nav [electionInfo]="electionInfo"></app-nav>
-        
-        <!-- Sección de presentación -->
-    <section class="presentation mt-5 pt-5 mb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-left">
-                    <h1 class="november-title">Noviembre 2024</h1>
-                    <h2 class="title-main mb-4">PUERTO RICO<br> SIN COLORES</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-left">
-                    <h3 class="subtitle">A la opinión pública e interesados</h3>
-                    <p class="text-paragraph">
-                        Por favor, no nos llamen nacionalistas, llámenos Puertorriqueñistas, porque Puerto Rico es nuestro amor. Hemos creado este sitio web para demostrar que cuando votamos con el corazón, se puede construir un país mejor.
-                    </p>
-                    <p class="text-paragraph">
-                        Este sitio es solo el comienzo. No importa el resultado en noviembre, tu voto será la prueba de que, sin colores, lo que queda es el corazón.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <app-candidate-result></app-candidate-result>
 
-      <!-- Sección de votaciones -->
-      <section class="votes mb-5">
-          <div class="container container2">
-              <div class="votes-box p-4 border rounded shadow-sm d-flex justify-content-between align-items-center">
-                  <div class="vote-info">
-                      <h3 class="mb-0 fw-bold">{{electionInfo?.totalVotes || '0' }} <span class="fw-normal text-muted">Votos recolectados</span></h3>
-                      <p class="text-muted fst-italic">Los puertorriqueñistas queremos seguir construyendo con amor</p>
-                  </div>
-                  <div class="vote-button">
-                      <button class="btn vote-btn">
-                          <div class="d-flex flex-column justify-content-center align-items-center">
-                              <span class="badge-dot"></span>
-                              <strong>SE</strong>
-                              <span>PERMITE</span>
-                              <strong>VOTAR</strong>
-                          </div>
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </section>
+    <app-steps></app-steps>
 
-      <!-- Sección de candidatos -->
-      <section *ngIf="electionInfo && electionInfo.candidatesElectionInfo" class="candidates-section mb-5">
-          <div class="container">
-              <div class="row justify-content-center text-center">
-                <div *ngFor="let candidate of electionInfo.candidatesElectionInfo; let i = index" 
-                class="col-lg-3 col-md-6 col-sm-12 mb-4" 
-                [ngStyle]="{'transform': 'translateY(' + (i * 20) + 'px)'}">
-                  <div class="candidate">
-                          <img [src]="candidate.pictureUrl" [alt]="candidate.name" class="img-fluid candidate-img mb-3">
-                          <h5 class="candidate-name">{{ candidate.name }}</h5>
-                          <p class="votes">{{ candidate.totalVotes }} Votos</p>
-                      </div>
-                  </div>
-           
-              </div>
-          </div>
-      </section>
-
-      <!-- Sección del mini banner -->
-      <div class="container">
-              <hr>
-              <nav class="text-center my-3">
-                  <span>PUERTORRIQUEÑISTAS • AMAMOS A PUERTO RICO • PUERTORRIQUEÑISTAS</span>
-              </nav>
-              <hr>
-      </div>
-
-      <!-- Sección del simulacro -->
-      <section class="simulacro-section mb-5">
-          <div class="container">
-              <div class="row">
-                  <div class="col-12">
-                      <p class="simulacro-intro">
-                          En este simulacro, tendrás la oportunidad de votar por la propuesta que mejor se alinea con tu visión para el futuro de Puerto Rico en temas como Salud, Seguridad Pública, Desarrollo Económico, Anticorrupción, Energía, Educación y Justicia Social, sin saber a qué candidato pertenece cada propuesta.
-                      </p>
-                      <p class="simulacro-intro">
-                          Al finalizar, te mostraremos cuántas propuestas seleccionaste de cada candidato, y tu voto se sumará al candidato con el mayor número de propuestas elegidas.
-                      </p>
-                  </div>
-              </div>
-              <div class="row steps text-center">
-                  <div class="col-lg-4 col-md-12 mb-4">
-                      <div class="step-box">
-                          <div class="step-number">Paso 1</div>
-                          <hr class="step-divider">
-                          <h5>Elige las propuestas que mejor resuenen contigo</h5>
-                          <p>Las propuestas de los candidatos están organizadas en orden aleatorio, selecciona 1 por categoría.</p>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-12 mb-4">
-                      <div class="step-box">
-                          <div class="step-number">Paso 2</div>
-                          <hr class="step-divider">
-                          <h5>Afinidad de selección con candidatos</h5>
-                          <p>La plataforma te dará un resultado en porcentaje basado en las opciones que has seleccionado.</p>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="step-box">
-                        <div class="step-number">Paso 3</div>
-                        <hr class="step-divider">
-                        <h5>Reflexiona y comparte en tus redes sociales</h5>
-                        <p>Es momento de reflexionar, si las propuestas que elegiste son lo que mejor conviene a nuestra isla.</p>
-                    </div>
-                </div>
-              </div>
-              <!-- Agregar el botón -->
-              <div class="row text-center mt-4">
-                  <div class="col-12">
-                      <button class="btn btn-votar" (click)="click(optionButtomText)">{{optionButtomText}}</button>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <div *ngIf="this.showVote ">
+      
+      <!-- Sección de voto -->
+      <div *ngIf="showVote" id="vote-section">
         <app-vote-by-categories-list 
-        [actualUserVote]="actualUserVote"
-        (resultEvent)="handleResult($event)">
+          [actualUserVote]="actualUserVote" 
+          (resultEvent)="handleResult($event)">
         </app-vote-by-categories-list>
       </div>
       
-      <div *ngIf="this.showResult ">
-        <app-vote-results
-        [actualUserVote]="actualUserVote"
-        [generatedResults]="results"
-        (repeatEvent)="handledRepeat($event)">
+      <!-- Sección de resultados -->
+      <div *ngIf="showResult">
+        <app-vote-results 
+          [actualUserVote]="actualUserVote" 
+          [generatedResults]="results" 
+          (repeatEvent)="handledRepeat($event)">
         </app-vote-results>
       </div>
-
-<!-- Footer -->
-<footer class="footer-section">
-    <div class="container">
-        <p class="footer-text">Este sitio está hecho con Amor. Derechos reservados 2024</p>
-        <div class="footer-links">
-            <a href="#" class="footer-link">PRsinColores</a>
-            <img src="./assets/img/banderapr.png" alt="Logo" class="footer-logo">
-            <a href="#" class="footer-link">Acerca de</a>
-        </div>
-    </div>
-</footer>
+      
+      <!-- Footer -->
+      <div id="footer-section">
+        <footer class="footer-section">
+          <div class="container">
+            <p class="footer-text">Este sitio está hecho con Amor. Derechos reservados 2024</p>
+            <div class="footer-links">
+              <a href="#" class="footer-link">PRsinColores</a>
+              <img src="./assets/img/banderapr.png" alt="Logo" class="footer-logo">
+              <a href="#" class="footer-link">Acerca de</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+      
